@@ -16,7 +16,7 @@ A comprehensive demo app showcasing **100ms Prebuilt UI** integration in **Expo 
 
 ```bash
 # Clone and install
-git clone <your-repo-url>
+git clone https://github.com/yourusername/hms-prebuilt-demo.git
 cd hms-prebuilt-demo
 npm install
 
@@ -37,7 +37,6 @@ npx expo run:android
 
 Built with modern React Native and Expo patterns:
 - **Expo Router**: File-based routing with TypeScript
-- **NativeWind**: Tailwind CSS for React Native
 - **100ms SDK**: Professional video calling infrastructure
 - **TypeScript**: Full type safety and developer experience
 
@@ -45,7 +44,7 @@ Built with modern React Native and Expo patterns:
 
 - **[Complete Setup Guide](docs/README.md)**: Comprehensive installation and configuration
 - **[Installation Guide](docs/INSTALLATION.md)**: Step-by-step setup instructions
-- **[API Reference](docs/API.md)**: Component and service documentation
+- **[Security Guide](docs/SECURITY.md)**: Production security best practices
 
 ## 🧪 Testing
 
@@ -61,10 +60,6 @@ See our [complete documentation](docs/README.md) for troubleshooting and detaile
 
 This is a learning demo - feel free to fork, modify, and learn from it!
 
-## 📄 License
+## License
 
-[Your License Here]
-
----
-
-**Built with ❤️ using [100ms](https://100ms.live) and [Expo](https://expo.dev)**
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

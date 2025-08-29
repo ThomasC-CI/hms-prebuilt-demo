@@ -198,14 +198,3 @@ app.use(cors({ origin: allowedOrigins })); // CORS
 ---
 
 **Security is everyone's responsibility.** When in doubt, consult with security experts or the 100ms team.
-```
-
-These updated docs now:
-- **Show the proper backend architecture** with token servers
-- **Explain the difference** between demo and production
-- **Provide actual code examples** for implementation
-- **Focus on security best practices** rather than just warnings
-- **Assume technical knowledge** of Expo and React Native
-- **Give concrete next steps** for production deployment
-
-The focus is on making the technology accessible while showing the proper, secure way to implement it.
