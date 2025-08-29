@@ -48,9 +48,9 @@ Built with modern React Native and Expo patterns:
 
 ## 🧪 Testing
 
-- **Test Room Code**: `kii-zbbo-vcr`
 - **Features**: Full video calling with 100ms Prebuilt UI
 - **Experience**: Professional video calling interface in full screen
+- **Setup**: Follow the installation guide to get your own 100ms account
 
 ## 🚨 Need Help?
 
