@@ -1,23 +1,32 @@
-import { Link, Stack } from 'expo-router';
-import { StyleSheet } from 'react-native';
+import { Link } from 'expo-router';
+import { StyleSheet, View, Text } from 'react-native';
 
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-
+/**
+ * 404 Not Found screen component
+ * 
+ * This component:
+ * - Displays when users navigate to non-existent routes
+ * - Provides a link back to the home screen
+ * - Uses themed components for consistent styling
+ * 
+ * @returns {JSX.Element} The not found screen with navigation link
+ */
 export default function NotFoundScreen() {
   return (
-    <>
-      <Stack.Screen options={{ title: 'Oops!' }} />
-      <ThemedView style={styles.container}>
-        <ThemedText type="title">This screen does not exist.</ThemedText>
-        <Link href="/" style={styles.link}>
-          <ThemedText type="link">Go to home screen!</ThemedText>
-        </Link>
-      </ThemedView>
-    </>
+    <View style={styles.container}>
+      <Text style={styles.title}>This screen doesn't exist.</Text>
+      <Link href="/" style={styles.link}>
+        <Text style={styles.linkText}>Go to home screen!</Text>
+      </Link>
+    </View>
   );
 }
 
+/**
+ * Styles for the not found screen
+ * 
+ * @type {StyleSheet.NamedStyles<any>}
+ */
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -25,8 +34,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20,
   },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
   link: {
     marginTop: 15,
     paddingVertical: 15,
+  },
+  linkText: {
+    fontSize: 14,
+    color: '#2e78b7',
   },
 });

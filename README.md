@@ -1,50 +1,70 @@
-# Welcome to your Expo app 👋
+# HMS Prebuilt Demo
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A comprehensive demo app showcasing **100ms Prebuilt UI** integration in **Expo SDK 53**.
 
-## Get started
+## 🎯 What This Demo Shows
 
-1. Install dependencies
+- ✅ **Room Creation & Joining**: Complete flow for creating and joining video call rooms
+- ✅ **100ms Prebuilt UI**: Full video calling interface with minimal code
+- ✅ **Expo Integration**: Native modules working seamlessly with Expo
+- ✅ **Modern UI/UX**: Clean, responsive design with proper theming
+- ✅ **TypeScript**: Full type safety and modern development experience
+- ✅ **Permission Handling**: Automatic camera and microphone permission requests
+- ✅ **Full Screen Video**: Professional video calling experience without custom UI
 
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## 🚀 Quick Start
 
 ```bash
-npm run reset-project
+# Clone and install
+git clone <your-repo-url>
+cd hms-prebuilt-demo
+npm install
+
+# Install HMS dependencies
+npx expo install @100mslive/react-native-room-kit @100mslive/react-native-hms @100mslive/types-prebuilt @react-native-community/blur @react-native-masked-view/masked-view @shopify/flash-list lottie-react-native react-native-gesture-handler react-native-linear-gradient react-native-modal react-native-reanimated react-native-safe-area-context react-native-simple-toast react-native-webview --legacy-peer-deps
+
+# Install build tools
+npx expo install expo-build-properties expo-camera expo-font --legacy-peer-deps
+
+# Run the app
+npx expo prebuild --clean
+npx expo run:android
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+**⚠️ Important**: This app cannot run in Expo Go due to native dependencies.
 
-## Learn more
+## 🏗️ Architecture
 
-To learn more about developing your project with Expo, look at the following resources:
+Built with modern React Native and Expo patterns:
+- **Expo Router**: File-based routing with TypeScript
+- **NativeWind**: Tailwind CSS for React Native
+- **100ms SDK**: Professional video calling infrastructure
+- **TypeScript**: Full type safety and developer experience
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## 📚 Documentation
 
-## Join the community
+- **[Complete Setup Guide](docs/README.md)**: Comprehensive installation and configuration
+- **[Installation Guide](docs/INSTALLATION.md)**: Step-by-step setup instructions
+- **[API Reference](docs/API.md)**: Component and service documentation
 
-Join our community of developers creating universal apps.
+## 🧪 Testing
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- **Test Room Code**: `kii-zbbo-vcr`
+- **Features**: Full video calling with 100ms Prebuilt UI
+- **Experience**: Professional video calling interface in full screen
+
+## 🚨 Need Help?
+
+See our [complete documentation](docs/README.md) for troubleshooting and detailed setup instructions.
+
+## Contributing
+
+This is a learning demo - feel free to fork, modify, and learn from it!
+
+## 📄 License
+
+[Your License Here]
+
+---
+
+**Built with ❤️ using [100ms](https://100ms.live) and [Expo](https://expo.dev)**
