@@ -65,6 +65,8 @@ app.post('/api/rooms/:roomId/token', authenticateUser, (req, res) => {
 ### Client Security
 ```typescript
 // ✅ Secure: Get tokens from backend
+// Note: This method doesn't exist in the current demo service
+// It would need to be implemented when adding a backend
 const authToken = await hmsService.getAuthToken(roomId, role);
 await hmsInstance.join({ authToken });
 

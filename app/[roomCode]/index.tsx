@@ -1,4 +1,4 @@
-import { useLocalSearchParams, router } from 'expo-router';
+import { useLocalSearchParams, router, Stack } from 'expo-router';
 import { HMSPrebuilt } from '@100mslive/react-native-room-kit';
 import { View, StyleSheet, LogBox } from 'react-native';
 
@@ -45,7 +45,9 @@ export default function RoomScreen() {
    */
   const handleRoomLeave = (reason: any) => {
     console.log(':: Reason for Leaving the Room > ', reason);
-    router.back();
+    
+    // Force navigation back to prevent "Meeting Ended" state
+    router.replace('/');
   };
 
   // Don't render if no room code is provided
@@ -54,18 +56,28 @@ export default function RoomScreen() {
   }
 
   return (
-    <View style={styles.container}>
-      <HMSPrebuilt
-        roomCode={roomCode as string}
-        options={{
-          userName: "User",
-          userId: `user_${Date.now()}`,
-        }}
-        onLeave={handleRoomLeave}
-        handleBackButton={true}
-        autoEnterPipMode={true}
+    <>
+      <Stack.Screen 
+        options={{ 
+          headerShown: false,
+          header: () => null,
+          presentation: 'fullScreenModal'
+        }} 
       />
-    </View>
+      <View style={styles.container}>
+        <HMSPrebuilt
+          key={roomCode} // Add key to force re-mount when room code changes
+          roomCode={roomCode as string}
+          options={{
+            userName: "User",
+            userId: `user_${Date.now()}`,
+          }}
+          onLeave={handleRoomLeave}
+          handleBackButton={true}
+          autoEnterPipMode={true}
+        />
+      </View>
+    </>
   );
 }
 

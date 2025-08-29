@@ -16,15 +16,9 @@ A comprehensive demo app showcasing **100ms Prebuilt UI** integration in **Expo 
 
 ```bash
 # Clone and install
-git clone https://github.com/yourusername/hms-prebuilt-demo.git
+git clone https://github.com/ThomasC-CI/hms-prebuilt-demo.git
 cd hms-prebuilt-demo
-npm install
-
-# Install HMS dependencies
-npx expo install @100mslive/react-native-room-kit @100mslive/react-native-hms @100mslive/types-prebuilt @react-native-community/blur @react-native-masked-view/masked-view @shopify/flash-list lottie-react-native react-native-gesture-handler react-native-linear-gradient react-native-modal react-native-reanimated react-native-safe-area-context react-native-simple-toast react-native-webview --legacy-peer-deps
-
-# Install build tools
-npx expo install expo-build-properties expo-camera expo-font --legacy-peer-deps
+npm install --legacy-peer-deps
 
 # Run the app
 npx expo prebuild --clean
@@ -42,9 +36,10 @@ Built with modern React Native and Expo patterns:
 
 ## 📚 Documentation
 
-- **[Complete Setup Guide](docs/README.md)**: Comprehensive installation and configuration
 - **[Installation Guide](docs/INSTALLATION.md)**: Step-by-step setup instructions
 - **[Security Guide](docs/SECURITY.md)**: Production security best practices
+- **[Backend Guide](docs/BACKEND.md)**: How to implement a secure backend
+- **[Troubleshooting](docs/TROUBLESHOOTING.md)**: Common issues and solutions
 
 ## 🧪 Testing
 
@@ -54,7 +49,7 @@ Built with modern React Native and Expo patterns:
 
 ## 🚨 Need Help?
 
-See our [complete documentation](docs/README.md) for troubleshooting and detailed setup instructions.
+See our [complete documentation](docs/INSTALLATION.md) for troubleshooting and detailed setup instructions.
 
 ## Contributing
 

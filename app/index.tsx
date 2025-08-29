@@ -2,10 +2,8 @@ import { Text, View, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import { JoinRoomModal } from '@/components/JoinRoomModal';
 import { RoomCodeModal } from '@/components/RoomCodeModal';
 import { hmsService } from '@/lib/hms-service';
-import * as Clipboard from 'expo-clipboard';
 import { router } from 'expo-router';
-import * as Sharing from 'expo-sharing';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 /**
  * Home screen component with room creation and joining functionality
@@ -57,40 +55,6 @@ export default function HomeScreen() {
     }
   };
 
-  /**
-   * Copies the room code to clipboard
-   * 
-   * This method:
-   * - Copies the room code to device clipboard
-   * - Shows success feedback to user
-   * - Handles clipboard errors gracefully
-   */
-  const handleCopyRoomCode = async () => {
-    try {
-      await Clipboard.setStringAsync(roomCode);
-      Alert.alert('Success', 'Room code copied to clipboard!');
-    } catch (error) {
-      Alert.alert('Error', 'Failed to copy room code');
-    }
-  };
-
-  /**
-   * Shares the room code using device sharing
-   * 
-   * This method:
-   * - Uses device's native sharing functionality
-   * - Creates a shareable message with room code
-   * - Handles sharing errors gracefully
-   */
-  const handleShareRoomCode = async () => {
-    try {
-      const message = `Join my video chat room! Use code: ${roomCode}`;
-      await Sharing.shareAsync(message);
-    } catch (error) {
-      Alert.alert('Error', 'Failed to share room code');
-    }
-  };
-
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -117,9 +81,7 @@ export default function HomeScreen() {
       <RoomCodeModal
         visible={showRoomCodeModal}
         roomCode={roomCode}
-        onCopy={handleCopyRoomCode}
         onClose={() => setShowRoomCodeModal(false)}
-        onShare={handleShareRoomCode}
         onJoin={() => {
           setShowRoomCodeModal(false);
           handleJoinRoom(roomCode);

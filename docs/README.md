@@ -16,7 +16,7 @@ A comprehensive demo app showcasing **100ms Prebuilt UI** integration in **Expo 
 
 ```bash
 # Clone and install
-git clone https://github.com/yourusername/hms-prebuilt-demo.git
+git clone https://github.com/ThomasC-CI/hms-prebuilt-demo.git
 cd hms-prebuilt-demo
 npm install
 
@@ -63,3 +63,20 @@ This is a learning demo - feel free to fork, modify, and learn from it!
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Issues Found:
+
+### 1. **BACKEND.md** - Outdated Type References
+- References `CreateRoomRequest` which no longer exists (should be `CreateRoomOptions`)
+- The example code shows a different interface than what's actually available
+
+### 2. **INSTALLATION.md** - Environment Variables
+- Lists `EXPO_PUBLIC_HMS_APP_ACCESS_KEY` but this isn't used in the current code
+- Lists `HMS_APP_SECRET` and `HMS_JWT_SECRET` but these aren't used in the demo
+
+### 3. **README.md** - Missing Dependencies
+- The installation command is missing some required dependencies
+- Doesn't mention that some dependencies need `--legacy-peer-deps`
+
+### 4. **SECURITY.md** - References Non-existent Methods
+- References `hmsService.getAuthToken()` which doesn't exist in the current service

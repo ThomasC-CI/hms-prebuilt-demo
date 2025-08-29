@@ -39,9 +39,11 @@ We use 100ms for video infrastructure, but the concepts apply to any WebRTC prov
 git clone <your-repo-url>
 cd hms-prebuilt-demo
 
-# Install dependencies
-npm install
+# Install dependencies (use --legacy-peer-deps for compatibility)
+npm install --legacy-peer-deps
 ```
+
+> 💡 **Why --legacy-peer-deps?** The HMS video packages have specific peer dependency requirements that conflict with some Expo SDK 53 packages. Using `--legacy-peer-deps` resolves these conflicts while maintaining full functionality.
 
 ## Step 3: Environment Configuration
 
@@ -54,15 +56,10 @@ Update `.env` with your credentials:
 ```bash
 # Video Infrastructure Configuration
 EXPO_PUBLIC_HMS_TEMPLATE_ID=your_template_id_here
-EXPO_PUBLIC_HMS_APP_ACCESS_KEY=your_app_access_key_here
+EXPO_PUBLIC_HMS_MANAGEMENT_TOKEN=your_management_token_here
 
-# Backend Configuration (for production)
-HMS_APP_SECRET=your_app_secret_here
-HMS_JWT_SECRET=your_jwt_secret_here
-
-# Optional: Custom settings
-EXPO_PUBLIC_HMS_ROOM_NAME_PREFIX=Demo Room
-EXPO_PUBLIC_HMS_DEFAULT_USERNAME=Guest
+# Note: HMS_APP_SECRET and HMS_JWT_SECRET are only needed
+# when implementing a backend server (see docs/BACKEND.md)
 ```
 
 ## Step 4: Development Build
@@ -111,11 +108,9 @@ App → Your Backend → Video API
 
 ### Required Variables
 - **`EXPO_PUBLIC_HMS_TEMPLATE_ID`** - Video room configuration template
-- **`EXPO_PUBLIC_HMS_APP_ACCESS_KEY`** - Public key for client apps
-- **`HMS_APP_SECRET`** - Secret key for backend (never expose to client)
+- **`EXPO_PUBLIC_HMS_MANAGEMENT_TOKEN`** - Management token for API access (development only)
 
 ### Optional Variables
-- **`HMS_JWT_SECRET`** - Custom JWT signing secret
 - **`EXPO_PUBLIC_HMS_ROOM_NAME_PREFIX`** - Default room name prefix
 - **`EXPO_PUBLIC_HMS_DEFAULT_USERNAME`** - Default username for guests
 

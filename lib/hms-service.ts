@@ -1,30 +1,17 @@
 import {
   CreateRoomOptions,
   CreateRoomResponse,
-  GetRoomResponse,
   RoomCodesResponse
 } from '@/types/room';
 
 /**
- * 100ms Service for managing video call rooms via REST API
+ * 100ms Service for creating video call rooms via REST API
  * 
  * This service provides methods to:
  * - Create new video call rooms using the 100ms API
  * - Generate room codes for different user roles
- * - Retrieve room information
- * - Handle room lifecycle management
  * 
  * @class HMSService
- * @example
- * // Create a new room
- * const result = await hmsService.createRoom({
- *   name: 'Team Meeting',
- *   description: 'Weekly standup'
- * });
- * 
- * if (result.success) {
- *   console.log('Room created with code:', result.guestCode);
- * }
  */
 export class HMSService {
   private managementToken: string;
@@ -52,19 +39,6 @@ export class HMSService {
    * @async
    * @param {CreateRoomOptions} [options] - Optional room creation parameters
    * @returns {Promise<CreateRoomResponse>} Room creation result with codes
-   * 
-   * @example
-   * const result = await hmsService.createRoom({
-   *   name: 'Demo Room',
-   *   description: 'Test meeting room',
-   *   templateId: 'template_123',
-   *   size: 50
-   * });
-   * 
-   * if (result.success) {
-   *   // Share guest code with participants
-   *   shareRoomCode(result.guestCode);
-   * }
    */
   async createRoom(options: CreateRoomOptions = {}): Promise<CreateRoomResponse> {
     try {
@@ -139,59 +113,13 @@ export class HMSService {
       };
     }
   }
-
-  /**
-   * Get room information by room ID
-   * 
-   * Retrieves detailed information about an existing room including
-   * participants, settings, and current status.
-   * 
-   * @async
-   * @param {string} roomId - The unique identifier of the room
-   * @returns {Promise<GetRoomResponse>} Room information or error
-   * 
-   * @example
-   * const roomInfo = await hmsService.getRoom('room_abc123');
-   * if (roomInfo.success) {
-   *   console.log('Room name:', roomInfo.room.name);
-   *   console.log('Participants:', roomInfo.room.participant_count);
-   * }
-   */
-  async getRoom(roomId: string): Promise<GetRoomResponse> {
-    try {
-      const response = await fetch(`${this.baseUrl}/rooms/${roomId}`, {
-        method: 'GET',
-        headers: {
-          'Authorization': `Bearer ${this.managementToken}`,
-        },
-      });
-
-      if (!response.ok) {
-        return {
-          success: false,
-          error: `Room not found: ${response.status}`,
-        };
-      }
-
-      const roomData = await response.json();
-      return {
-        success: true,
-        room: roomData,
-      };
-    } catch (error) {
-      return {
-        success: false,
-        error: error instanceof Error ? error.message : 'Unknown error occurred',
-      };
-    }
-  }
 }
 
 /**
  * Singleton instance of the HMS service
  * 
  * This instance is shared across the app and provides
- * access to all 100ms room management functionality.
+ * access to 100ms room creation functionality.
  * 
  * @warning DEVELOPMENT ONLY: This uses a management token which should
  * not be exposed in client applications. See docs/SECURITY.md for

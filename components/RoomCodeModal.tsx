@@ -1,4 +1,5 @@
-import { Modal, TouchableOpacity, View, StyleSheet, Text } from 'react-native';
+import { Modal, TouchableOpacity, View, StyleSheet, Text, Alert } from 'react-native';
+import * as Clipboard from 'expo-clipboard';
 
 /**
  * Props for RoomCodeModal component
@@ -8,64 +9,78 @@ import { Modal, TouchableOpacity, View, StyleSheet, Text } from 'react-native';
 interface RoomCodeModalProps {
   /** Whether the modal is visible */
   visible: boolean;
-  /** The room code to display and share */
+  /** The room code to display and copy */
   roomCode: string;
-  /** Callback when room code is copied */
-  onCopy: () => void;
   /** Callback when modal should close */
   onClose: () => void;
-  /** Callback when room code is shared */
-  onShare: () => void;
   /** Callback when user wants to join the room */
   onJoin: () => void;
 }
 
 /**
- * Modal component for displaying and sharing room codes
+ * Modal component for displaying and copying room codes
  * 
  * This component:
  * - Shows the generated room code prominently
- * - Provides copy, share, and join functionality
- * - Uses themed components for consistent styling
+ * - Provides copy functionality
  * - Handles user interactions for room code management
  * 
  * @param {RoomCodeModalProps} props - Component props
  * @returns {JSX.Element} Room code modal
- * 
- * @example
- * <RoomCodeModal
- *   visible={showRoomCodeModal}
- *   roomCode="abc-123-def"
- *   onCopy={handleCopyRoomCode}
- *   onClose={() => setShowRoomCodeModal(false)}
- *   onShare={handleShareRoomCode}
- *   onJoin={() => handleJoinRoom(roomCode)}
- * />
  */
-export function RoomCodeModal({ visible, roomCode, onCopy, onClose, onShare, onJoin }: RoomCodeModalProps) {
+export function RoomCodeModal({ visible, roomCode, onClose, onJoin }: RoomCodeModalProps) {
+  /**
+   * Copies the room code to clipboard
+   * 
+   * This method:
+   * - Copies the room code to device clipboard
+   * - Shows success feedback to user
+   * - Handles clipboard errors gracefully
+   */
+  const handleCopyRoomCode = async () => {
+    try {
+      await Clipboard.setStringAsync(roomCode);
+      Alert.alert('Success', 'Room code copied to clipboard! You can now share it with others.');
+    } catch (error) {
+      Alert.alert('Error', 'Failed to copy room code');
+    }
+  };
+
+  /**
+   * Handles joining the room
+   * 
+   * This method:
+   * - Closes the modal first
+   * - Waits a moment for the modal to close
+   * - Then triggers the join action
+   */
+  const handleJoinRoom = () => {
+    // Close the modal first
+    onClose();
+    
+    // Wait a moment for the modal to close, then join
+    setTimeout(() => {
+      onJoin();
+    }, 300);
+  };
+
   return (
     <Modal visible={visible} animationType="slide" transparent>
       <View style={styles.overlay}>
         <View style={styles.modal}>
           <Text style={styles.title}>Room Created!</Text>
           
-          <Text style={styles.subtitle}>Share this code with others:</Text>
+          <Text style={styles.subtitle}>Copy this code and share it with others:</Text>
           
           <View style={styles.codeContainer}>
             <Text style={styles.roomCode}>{roomCode}</Text>
           </View>
           
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity style={[styles.button, styles.copyButton]} onPress={onCopy}>
-              <Text style={styles.buttonText}>Copy Code</Text>
-            </TouchableOpacity>
-            
-            <TouchableOpacity style={[styles.button, styles.shareButton]} onPress={onShare}>
-              <Text style={styles.buttonText}>Share</Text>
-            </TouchableOpacity>
-          </View>
+          <TouchableOpacity style={[styles.button, styles.copyButton]} onPress={handleCopyRoomCode}>
+            <Text style={styles.buttonText}>Copy Code</Text>
+          </TouchableOpacity>
 
-          <TouchableOpacity style={[styles.button, styles.joinButton]} onPress={onJoin}>
+          <TouchableOpacity style={[styles.button, styles.joinButton]} onPress={handleJoinRoom}>
             <Text style={styles.buttonText}>Join Room Now</Text>
           </TouchableOpacity>
           
@@ -122,11 +137,6 @@ const styles = StyleSheet.create({
     fontFamily: 'monospace',
     letterSpacing: 2,
   },
-  buttonContainer: {
-    flexDirection: 'row',
-    gap: 12,
-    marginBottom: 16,
-  },
   button: {
     padding: 12,
     borderRadius: 8,
@@ -135,11 +145,7 @@ const styles = StyleSheet.create({
   },
   copyButton: {
     backgroundColor: '#3B82F6',
-    flex: 1,
-  },
-  shareButton: {
-    backgroundColor: '#10B981',
-    flex: 1,
+    width: '100%',
   },
   joinButton: {
     backgroundColor: '#8B5CF6',

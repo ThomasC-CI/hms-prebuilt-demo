@@ -214,7 +214,7 @@ class HMSServiceClass {
     this.baseUrl = 'http://your-backend-url.com/api';
   }
 
-  async createRoom(request?: CreateRoomRequest): Promise<CreateRoomResponse> {
+  async createRoom(options?: CreateRoomOptions): Promise<CreateRoomResponse> {
     try {
       const response = await fetch(`${this.baseUrl}/rooms`, {
         method: 'POST',
@@ -222,7 +222,7 @@ class HMSServiceClass {
           'Authorization': `Bearer ${await this.getUserToken()}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(request),
+        body: JSON.stringify(options),
       });
 
       const data = await response.json();
