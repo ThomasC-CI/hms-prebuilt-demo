@@ -28,9 +28,6 @@ LogBox.ignoreLogs([
  * 
  * @returns {JSX.Element | null} The room screen or null if no room code
  * 
- * @example
- * // Navigate to this screen with: /room-code-here
- * // The room code will be extracted from the URL
  */
 export default function RoomScreen() {
   const { roomCode } = useLocalSearchParams<{ roomCode: string }>();

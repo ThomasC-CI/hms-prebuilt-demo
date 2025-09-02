@@ -3,13 +3,36 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "private": true,
+  "description": "A comprehensive demo app showcasing 100ms Prebuilt UI integration in Expo SDK 53",
+  "keywords": [
+    "react-native",
+    "expo",
+    "100ms",
+    "video-chat",
+    "webrtc",
+    "video-calling"
+  ],
+  "author": "Thomas Cleary <thomas@thomasmcleary.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ThomasC-CI/hms-prebuilt-demo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ThomasC-CI/hms-prebuilt-demo/issues"
+  },
+  "homepage": "https://github.com/ThomasC-CI/hms-prebuilt-demo#readme",
   "scripts": {
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
     "android": "expo run:android",
     "ios": "expo run:ios",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "lint:fix": "expo lint --fix",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf node_modules && npm install --legacy-peer-deps",
+    "prebuild:clean": "npx expo prebuild --clean"
   },
   "dependencies": {
     "@100mslive/react-native-hms": "^1.11.0",
@@ -65,5 +88,9 @@
     "eslint": "^9.27.0",
     "eslint-config-expo": "~9.2.0",
     "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=18.17.0",
+    "npm": ">=9.0.0"
   }
 }
