@@ -61,7 +61,8 @@ npx expo run:ios
 
 ## Still Stuck?
 
-- **100ms Discord**: [discord.gg/100ms](https://discord.gg/100ms)
+- **100ms Documentation**: [docs.100ms.live](https://docs.100ms.live)
+- **100ms Examples**: [github.com/100mslive/100ms-examples](https://github.com/100mslive/100ms-examples)
 - **Expo Help**: [forums.expo.dev](https://forums.expo.dev)
 
 ---

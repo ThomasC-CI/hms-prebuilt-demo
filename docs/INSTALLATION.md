@@ -85,4 +85,4 @@ npx expo prebuild --clean
 
 ---
 
-**Need help?** [100ms Discord](https://discord.gg/100ms) | [Expo Forums](https://forums.expo.dev)
+**Need help?** [100ms Documentation](https://docs.100ms.live) | [Expo Forums](https://forums.expo.dev)

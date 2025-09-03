@@ -93,7 +93,7 @@ app.post('/api/rooms', authenticateUser, (req, res) => {
 
 ## 🆘 Need Help?
 
-- **100ms Discord**: [discord.gg/100ms](https://discord.gg/100ms)
+- **100ms Documentation**: [docs.100ms.live](https://docs.100ms.live)
 - **Backend Examples**: [github.com/100mslive/100ms-examples](https://github.com/100mslive/100ms-examples)
 
 ---

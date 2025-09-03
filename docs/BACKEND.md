@@ -185,4 +185,4 @@ class HMSServiceClass {
 
 ---
 
-**Need help?** [100ms Discord](https://100ms.live/discord) | [Backend Examples](https://github.com/100mslive/100ms-examples)
+**Need help?** [100ms Documentation](https://docs.100ms.live) | [Backend Examples](https://github.com/100mslive/100ms-examples)

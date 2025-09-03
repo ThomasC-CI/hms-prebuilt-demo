@@ -60,7 +60,8 @@ User Interface → HMS Service → 100ms API → Video Chat
 
 ## 🆘 Need Help?
 
-- **100ms Discord**: [discord.gg/100ms](https://discord.gg/100ms)
+- **100ms Documentation**: [docs.100ms.live](https://docs.100ms.live)
+- **100ms Examples**: [github.com/100mslive/100ms-examples](https://github.com/100mslive/100ms-examples)
 - **Expo Forums**: [forums.expo.dev](https://forums.expo.dev)
 - **GitHub Issues**: Report bugs in this repository
 
@@ -75,4 +76,4 @@ User Interface → HMS Service → 100ms API → Video Chat
 
 **Happy coding!** 🎉 If this helps, please give it a star ⭐️
 
-**Questions?** Join the [100ms Discord](https://discord.gg/100ms) community!
+**Questions?** Check the [100ms Documentation](https://docs.100ms.live) or [GitHub Examples](https://github.com/100mslive/100ms-examples)!
